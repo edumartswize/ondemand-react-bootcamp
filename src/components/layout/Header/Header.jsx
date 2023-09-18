@@ -5,6 +5,7 @@ import cart from "./cart.png";
 import ContentContainer from "../ContentContainer.styled";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 const MainHeader = styled.header`
   background-color: #EEE;
@@ -36,11 +37,22 @@ const MainLogo = styled.div`
   img {
     object-fit: contain;
   }
+`;
+
+const Qty = styled.span`
+  background-color: #00ffdd;
+  margin-left: 0.2em;
+  max-height: 15px;
+  display: inline-flex;
+  align-items: end;
 `
 
 const Header = (props) => {
     const navigate = useNavigate();
     const searchTerm = useRef();
+    const items = useSelector((state) => state.cart.items);
+
+    const itemsCount = items.reduce((sum, value) => sum + Number(value.qty) || 0, 0);
 
     const goHome = () => {
         navigate('home');
@@ -67,12 +79,14 @@ const Header = (props) => {
                 <HeaderNav>
                     <input ref={searchTerm} type="text" placeholder="Search.."/>
                     <button onClick={search}>buscar</button>
-                    <Link to={{
-                            pathname: `/cart`
-                    }}>
-                      <img src={cart} alt="cart" width={30}></img>
-                    </Link>
+                      <Link to={{
+                              pathname: `/cart`
+                      }}>
+                        <img src={cart} alt="cart" width={30}></img>
+                      </Link>
+                      <Qty>{itemsCount === 0 ? '' : itemsCount}</Qty>
                 </HeaderNav>
+                
             </ContentContainer>
         </MainHeader>
     );

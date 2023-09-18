@@ -44,6 +44,7 @@ const Products = ({ categoriesFilter, setCategoriesFilter }) => {
     }, [currentPage, products]);
     
     if ( !currentPageProds ) return null;
+    
     return (
         <>
         <Grid>

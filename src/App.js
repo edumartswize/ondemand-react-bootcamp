@@ -9,6 +9,8 @@ import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductSearchResult from './components/product/ProductSearchResult';
+import ShoppingCart from './components/cart/ShoppingCart';
+import Checkout from './components/checkout/Checkout';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -27,6 +29,8 @@ function App() {
           <Route path='products' element={<ProductList />} />
           <Route path='product/:productId' element={<ProductDetail />} />
           <Route path='search' element={<ProductSearchResult />} />
+          <Route path='cart' element={<ShoppingCart />} />
+          <Route path='checkout' element={<Checkout />} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
