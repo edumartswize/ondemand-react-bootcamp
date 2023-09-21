@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation"
+import { useDispatch } from "react-redux";
+import { add } from "../../state/reducers/cartSlice"
 
 const ImageContainer = styled.div`
     .mySwiper {
@@ -48,16 +50,32 @@ const ProductContainer = styled.div`
     }
 `
 
+const ErrorMessage = styled.div`
+    color: red;
+`
+
 const ProductDetail = parms => {
     const { productId } = useParams();
     const { data } = useProductDetail(productId);
     const [ product, setProduct ] = useState([]);
+    const [ qty, setQty ] = useState(1);
+    const [errorMessage, setErrorMessage] = React.useState("");
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (data.results_size > 0) {
             setProduct(data.results[0]);   
         }
     }, [data]);
+
+    const addHandler = (() => {
+        setErrorMessage("");
+        if ( qty > product.data.stock) {
+            setErrorMessage("Only " + product.data.stock + " Items in stock");
+        } else {
+            dispatch(add({product: product, qty: qty}));
+        }
+    });
  
     if ( !product.data ){
         return null;
@@ -102,8 +120,14 @@ const ProductDetail = parms => {
             </div>
             <div className="product-grid-action">
                 <label>  Qty: </label>
-                <input type="number" min="1" max="100"></input>
-                <button>Add to car</button>
+                <input 
+                    type="number" 
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                    min="1" max="100">
+                </input>
+                {product.data.stock > 0 && <button onClick={addHandler}>Add to car</button>}
+                {errorMessage && <ErrorMessage className="error"> {errorMessage} </ErrorMessage>}
             </div>
         </ProductContainer>
         </>
