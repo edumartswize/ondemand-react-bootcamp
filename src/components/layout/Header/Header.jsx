@@ -84,7 +84,7 @@ const Header = (props) => {
                       }}>
                         <img src={cart} alt="cart" width={30}></img>
                       </Link>
-                      <Qty>{itemsCount === 0 ? '' : itemsCount}</Qty>
+                      <Qty role="cartTotal">{itemsCount === 0 ? '' : itemsCount}</Qty>
                 </HeaderNav>
                 
             </ContentContainer>

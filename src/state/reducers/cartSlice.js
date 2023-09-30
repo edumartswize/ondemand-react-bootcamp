@@ -17,17 +17,18 @@ export const cartSlice = createSlice({
             }
         },
         remove: (state, action) => {
-            console.log(action.payload);
             state.items = state.items.filter(item => item.product.id !== action.payload.id);
         },
         qty: (state, action) => {
-            console.log(action.payload);
             const index = state.items.findIndex((item) => item.product.id === action.payload.product.id);
             state.items[index].qty = action.payload.qty;
+        },
+        clear: (state, action) => {
+            state.items = [];
         }
     }
 });
 
-export const {add, remove, qty} = cartSlice.actions;
+export const {add, remove, qty, clear} = cartSlice.actions;
 
 export default cartSlice.reducer;

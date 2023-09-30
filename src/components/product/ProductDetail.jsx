@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import { useProductDetail } from "../../utils/hooks/useProductDetail";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from 'swiper/modules';
-import "swiper/css";
-import "swiper/css/navigation"
+import { Navigation } from "swiper";
+import "swiper/swiper.min.css";
+//import "swiper/navigation.css"
 import { useDispatch } from "react-redux";
 import { add } from "../../state/reducers/cartSlice"
 
@@ -55,6 +56,7 @@ const ErrorMessage = styled.div`
 `
 
 const ProductDetail = parms => {
+    const items = useSelector((state) => state.cart.items);
     const { productId } = useParams();
     const { data } = useProductDetail(productId);
     const [ product, setProduct ] = useState([]);
@@ -64,13 +66,18 @@ const ProductDetail = parms => {
 
     useEffect(() => {
         if (data.results_size > 0) {
-            setProduct(data.results[0]);   
+            setProduct(data.results[0]);
         }
     }, [data]);
 
     const addHandler = (() => {
         setErrorMessage("");
-        if ( qty > product.data.stock) {
+        let qtyToOrder = qty;
+        const item = items.find((item) => item.product.id === product.id);
+        if (item) {
+             qtyToOrder += item.qty;
+        }
+        if ( qtyToOrder > product.data.stock) {
             setErrorMessage("Only " + product.data.stock + " Items in stock");
         } else {
             dispatch(add({product: product, qty: qty}));
@@ -126,7 +133,7 @@ const ProductDetail = parms => {
                     onChange={(e) => setQty(e.target.value)}
                     min="1" max="100">
                 </input>
-                {product.data.stock > 0 && <button onClick={addHandler}>Add to car</button>}
+                <button onClick={addHandler} disabled={!product.data.stock > 0}>Add to car</button>
                 {errorMessage && <ErrorMessage className="error"> {errorMessage} </ErrorMessage>}
             </div>
         </ProductContainer>

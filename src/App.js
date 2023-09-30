@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import Layout from './components/layout/Layout';
 import ProductList from './components/product/ProductList';
 import ProductDetail from './components/product/ProductDetail';
@@ -13,8 +12,6 @@ import ShoppingCart from './components/cart/ShoppingCart';
 import Checkout from './components/checkout/Checkout';
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
   const [showPage, setShowPage] = useState('Home');
   const value = { showPage, setShowPage };
 
