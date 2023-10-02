@@ -5,7 +5,6 @@ import ShoppingCartStyle from "./ShoppingCart.styled";
 
 const ShoppingCart = () => {
     const items = useSelector((state) => state.cart.items);
-
     const total = items.reduce((sum, value) => sum + (Number(value.qty) * Number(value.product.data.price)), 0);
 
     return (

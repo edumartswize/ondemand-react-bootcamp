@@ -13,10 +13,8 @@ const Grid = styled.div`
   row-gap: 8px;
 `;
 
-const Products = ({ categoriesFilter, setCategoriesFilter }) => {
-    const pageSize = 12;
+const Products = ({ categoriesFilter, setCategoriesFilter, currentPage, setCurrentPage, pageSize }) => {
     const { search } = useLocation();
-    const [currentPage, setCurrentPage] = useState(1);
     const { data } = useProducts(currentPage);
     const [ products, setProducts ] = useState([]);
 
@@ -41,7 +39,7 @@ const Products = ({ categoriesFilter, setCategoriesFilter }) => {
         const firstIndex = (currentPage - 1) * pageSize;
         const lastIndex = firstIndex + pageSize;
         return products.slice(firstIndex, lastIndex);
-    }, [currentPage, products]);
+    }, [currentPage, products, pageSize]);
     
     if ( !currentPageProds ) return null;
     

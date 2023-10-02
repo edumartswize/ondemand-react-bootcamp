@@ -1,0 +1,111 @@
+{
+    "page": 1,
+    "results_per_page": 20,
+    "results_size": 1,
+    "total_results_size": 1,
+    "total_pages": 1,
+    "next_page": null,
+    "prev_page": null,
+    "results": [
+        {
+            "id": "YZWdwRIAACkAumb-",
+            "uid": null,
+            "url": null,
+            "type": "product",
+            "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YZaBvBIAACgAvnOP&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YZWdwRIAACkAumb-%22%29+%5D%5D",
+            "tags": [
+                "Bathroom",
+                "Featured"
+            ],
+            "first_publication_date": "2021-11-18T00:26:45+0000",
+            "last_publication_date": "2021-11-18T00:26:45+0000",
+            "slugs": [
+                "disney-mickey-mouse-soap-dispenser",
+                "dispensador-de-jabon-disney-mickey-mouse"
+            ],
+            "linked_documents": [],
+            "lang": "en-us",
+            "alternate_languages": [
+                {
+                    "id": "YZWdRhIAAC0AumTV",
+                    "type": "product",
+                    "lang": "es-mx"
+                }
+            ],
+            "data": {
+                "name": "Disney Mickey Mouse Soap Dispenser",
+                "sku": "1107981469",
+                "category": {
+                    "id": "YWHx-xIAAC0Ayj7i",
+                    "type": "category",
+                    "tags": [],
+                    "lang": "en-us",
+                    "slug": "bed--bath",
+                    "first_publication_date": "2021-10-09T23:33:05+0000",
+                    "last_publication_date": "2021-10-12T23:45:23+0000",
+                    "link_type": "Document",
+                    "isBroken": false
+                },
+                "mainimage": {
+                    "dimensions": {
+                        "width": 696,
+                        "height": 900
+                    },
+                    "alt": "Disney Mickey Mouse Soap Dispenser",
+                    "copyright": null,
+                    "url": "https://images.prismic.io/wizeline-academy/5b557651-ed8c-46f4-9b4f-c00ef94e4a02_2.webp?auto=compress,format"
+                },
+                "short_description": "Brighten up your space with the all-magic mascot: Disney's Mickey Mouse. When you need an easy (and adorable) upgrade, our black stoneware soap or lotion dispenser, complete with a portrait of one of the world's most famous characters, is perfect for your dressing table.",
+                "description": [
+                    {
+                        "type": "paragraph",
+                        "text": "Brighten up your space with the all-magic mascot: Disney's Mickey Mouse. When you need an easy (and adorable) upgrade, our black stoneware soap or lotion dispenser, complete with a portrait of one of the world's most famous characters, is perfect for your dressing table.",
+                        "spans": []
+                    }
+                ],
+                "specs": [
+                    {
+                        "spec_name": "Color",
+                        "spec_value": "Black"
+                    },
+                    {
+                        "spec_name": "Product width",
+                        "spec_value": "Approximate diameter 7.6 cm"
+                    },
+                    {
+                        "spec_name": "Product height",
+                        "spec_value": "19.05 cm approximate"
+                    }
+                ],
+                "images": [
+                    {
+                        "image": {
+                            "dimensions": {
+                                "width": 696,
+                                "height": 900
+                            },
+                            "alt": null,
+                            "copyright": null,
+                            "url": "https://images.prismic.io/wizeline-academy/5b557651-ed8c-46f4-9b4f-c00ef94e4a02_2.webp?auto=compress,format"
+                        }
+                    },
+                    {
+                        "image": {
+                            "dimensions": {
+                                "width": 696,
+                                "height": 900
+                            },
+                            "alt": null,
+                            "copyright": null,
+                            "url": "https://images.prismic.io/wizeline-academy/273c2c4a-889d-443a-a701-0c45a4f011c5_1.webp?auto=compress,format"
+                        }
+                    }
+                ],
+                "stock": 22,
+                "price": 23
+            }
+        }
+    ],
+    "version": "3d2068b",
+    "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+}

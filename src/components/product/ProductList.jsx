@@ -9,17 +9,22 @@ const Div = styled.div`
 
 const ProductList = props => {
     const [categoriesFilter, setCategoriesFilter] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
     return (
         <>
             <CategorySidebar 
                 categoriesFilter={categoriesFilter}
                 setCategoriesFilter={setCategoriesFilter}
+                setCurrentPage={setCurrentPage}
             />
             <Div>
             <Products
                 categoriesFilter={categoriesFilter}
                 setCategoriesFilter={setCategoriesFilter}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                pageSize={12}
             />
             </Div>
         </>

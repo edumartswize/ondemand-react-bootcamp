@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CategorySidebarList from "./CategorySidebar.styled";
 import { useProductCategories } from "../../utils/hooks/useProductCategories";
 
-const CategorySidebar = ({ categoriesFilter, setCategoriesFilter}) => {
+const CategorySidebar = ({ categoriesFilter, setCategoriesFilter, setCurrentPage}) => {
     const { data } = useProductCategories();
     const [ categories, setCategories ] = useState([]);
 
@@ -17,6 +17,7 @@ const CategorySidebar = ({ categoriesFilter, setCategoriesFilter}) => {
         } else {
             setCategoriesFilter(categoriesFilter.filter((slug) => !slugs.includes(slug)));
         }
+        setCurrentPage(1);
     };
 
     const clearCategoriesFilter = () => {

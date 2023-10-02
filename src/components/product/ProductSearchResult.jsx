@@ -23,6 +23,7 @@ const ProductSearchResult = () => {
     
     useEffect(() => {
         setProducts(data.results);
+        setCurrentPage(1);
     }, [data]);
 
     if ( !products ) return null;
